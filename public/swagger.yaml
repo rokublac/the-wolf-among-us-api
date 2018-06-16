@@ -527,8 +527,6 @@ paths:
         200:
           description: OK Success
           schema:
-            type: array
-            items:
               $ref: '#/definitions/Episodes'
           examples:
             application/json:
