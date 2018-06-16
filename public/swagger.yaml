@@ -468,15 +468,13 @@ paths:
         '404':
           description: Not found
           schema:
-            type: object
-            items:
               $ref: '#/definitions/Error'
           examples:
             application/json:
-              [{
-              "statusCode": 404,
-              "message": "Not found"
-              }]
+              {
+                "statusCode": 404,
+                "message": "Not found"
+              }
 
   /episodes/{id}:
     get:
