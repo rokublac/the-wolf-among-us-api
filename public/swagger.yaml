@@ -112,39 +112,40 @@ paths:
         200:
           description: OK Success
           schema:
-            type: array
-            items:
               $ref: '#/definitions/Characters'
           examples:
             application/json:
-              [{
-                  "id": 1,
-                  "name": "Bigby Wolf",
-                  "species": "Wolf",
-                  "gender": "Male",
-                  "occupation": "Fabletown Sherrif",
-                  "hairColour": "Mahogany",
-                  "eyeColour": "Brown",
-                  "description": "The renowned Big Bad Wolf. He's known for tormenting pigs and girls in red hoods, but is trying to put those dark days behind him. Bigby now acts as Fabletown's sheriff and remains in his human form, mostly. However, due to his rough past, the citizens of Fabletown are slow to trust him. Bigby is determined to show that he's truly changed, but some instincts are just too hard to control",
-                  "imagePath": "https://vignette.wikia.nocookie.net/fables/images/2/2b/CW_Bigby_Nerissa_Convo.png/revision/latest?cb=20140710174447"
-                },
-                {
-                  "id": 2,
-                  "name": "Winter Wolf",
-                  "species": "Wolf",
-                  "gender": "Female",
-                  "occupation": "Unknown",
-                  "hairColour": "White",
-                  "eyeColour": "Unknown",
-                  "description": "Winter was the mother of Bigby Wolf and his brothers. Winter was a good and caring mother and Bigby regards her very highly and was displeased that his father, Mr. North, left her. Despite that, Winter loved and was devoted to him even to the moment of her death.",
-                  "imagePath": "https://vignette.wikia.nocookie.net/fables/images/e/e2/Winter_Wolf.png/revision/latest?cb=20140808191333"
+              {
+                "statusCode": 200,
+                "body": [
+                      {
+                        "id": 1,
+                        "name": "Bigby Wolf",
+                        "species": "Wolf",
+                        "gender": "Male",
+                        "occupation": "Fabletown Sherrif",
+                        "hairColour": "Mahogany",
+                        "eyeColour": "Brown",
+                        "description": "The renowned Big Bad Wolf. He's known for tormenting pigs and girls in red hoods, but is trying to put those dark days behind him. Bigby now acts as Fabletown's sheriff and remains in his human form, mostly. However, due to his rough past, the citizens of Fabletown are slow to trust him. Bigby is determined to show that he's truly changed, but some instincts are just too hard to control",
+                        "imagePath": "https://vignette.wikia.nocookie.net/fables/images/2/2b/CW_Bigby_Nerissa_Convo.png/revision/latest?cb=20140710174447"
+                      },
+                      {
+                        "id": 2,
+                        "name": "Winter Wolf",
+                        "species": "Wolf",
+                        "gender": "Female",
+                        "occupation": "Unknown",
+                        "hairColour": "White",
+                        "eyeColour": "Unknown",
+                        "description": "Winter was the mother of Bigby Wolf and his brothers. Winter was a good and caring mother and Bigby regards her very highly and was displeased that his father, Mr. North, left her. Despite that, Winter loved and was devoted to him even to the moment of her death.",
+                        "imagePath": "https://vignette.wikia.nocookie.net/fables/images/e/e2/Winter_Wolf.png/revision/latest?cb=20140808191333"
+                      }
+                ]
               }
-              ]
-        '404':
+            
+        404:
           description: Not found
           schema:
-            type: array
-            items:
               $ref: '#/definitions/Error'
           examples:
             application/json:
