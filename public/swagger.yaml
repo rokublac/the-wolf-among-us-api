@@ -1,0 +1,640 @@
+swagger: '2.0'
+info:
+  title: The Wolf Among Us API
+  description: |
+    # Introduction
+      Welcome to the  REST API for Telltale's The Wolf Among Us!
+
+      The Wolf Among Us API provides the (current) characters, locations, and episodes within the game.
+
+      For issues and support, please visit the main repository: [https://github.com/rokublak/the-wolf-among-us-api](https://github.com/rokublak/the-wolf-among-us-api)
+
+    # API Access
+      #### Authentication
+      No authentication is required for this API.
+  
+      #### Base URL
+      All resource calls must be made with this base URL:
+      `https://twauapi.herokuapp.com`
+      
+      #### GET Requests
+      Requests can be made with `Curl` or with your desired language's HTTP GET request method. For example, with Curl, to GET the data for ***Bigsby Wolf***:
+
+      `curl https://twauapi.herokuapp.com/characters/1`
+
+      Response:
+
+      ```json
+      {
+      "id": 1,
+      "name": "Bigby Wolf",
+      "species": "Wolf",
+      "gender": "Male",
+      "occupation": "Fabletown Sherrif",
+      "hairColour": "Mahogany",
+      "eyeColour": "Brown",
+      "description": "The renowned Big Bad Wolf. He's known for tormenting pigs and girls in red hoods, but is trying to put those dark days behind him. Bigby now acts as Fabletown's sheriff and remains in his human form, mostly. However, due to his rough past, the citizens of Fabletown are slow to trust him. Bigby is determined to show that he's truly changed, but some instincts are just too hard to control",
+      "imagePath": "https://vignette.wikia.nocookie.net/fables/images/2/2b/CW_Bigby_Nerissa_Convo.png/revision/latest?cb=20140710174447"
+      }
+      ```
+
+  version: "1.0.0"
+  x-logo:
+    url: "./images/logo2.png"
+    backgroundColor: "#FFFF"
+# the domain of the service
+host: twauapi.herokuapp.com
+# array of all schemes that your API supports
+schemes:
+  - https
+x-tagGroups:
+  - name: Endpoints
+    tags:
+      - Characters
+      - Locations
+      - Episodes
+# will be prefixed to all paths
+basePath: /
+produces:
+  - application/json
+paths:
+  /characters:
+    get:
+      summary: All characters
+      description: |
+        `/characters` endpoint returns information for all the current characters.
+      tags:
+        - Characters
+      parameters:
+        - fields:
+          name: fields
+          in: query
+          description: comma-separated list of fields to include in the response
+          required: false
+          type: string
+        - limit:
+          name: limit
+          in: query
+          required: false
+          description: amount of results
+          type: integer
+          format: int64
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -X GET -H "Content-Type: application/json" https://twauapi.herokuapp.com/characters
+        - lang: Python
+          source: |
+            import urllib2
+
+            urllib2.urlopen('https://twauapi.herokuapp.com/characters').read()
+        - lang: JavaScript
+          source: |
+            var xmlhttp = new XMLHttpRequest();
+            var url = 'https://twauapi.herokuapp.com/characters';
+
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var characters = JSON.parse(this.responseText);
+                    console.log(characters);
+                }
+            };
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        - lang: Ruby
+          source: |
+            require 'net/http'
+
+            uri = URI('https://twauapi.herokuapp.com/characters')
+            Net::HTTP.get(uri) # => String
+
+      responses:
+        200:
+          description: OK Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Characters'
+          examples:
+            application/json:
+              [{
+              "id": 1,
+              "name": "Bigby Wolf",
+              "species": "Wolf",
+              "gender": "Male",
+              "occupation": "Fabletown Sherrif",
+              "hairColour": "Mahogany",
+              "eyeColour": "Brown",
+              "description": "The renowned Big Bad Wolf. He's known for tormenting pigs and girls in red hoods, but is trying to put those dark days behind him. Bigby now acts as Fabletown's sheriff and remains in his human form, mostly. However, due to his rough past, the citizens of Fabletown are slow to trust him. Bigby is determined to show that he's truly changed, but some instincts are just too hard to control",
+              "imagePath": "https://vignette.wikia.nocookie.net/fables/images/2/2b/CW_Bigby_Nerissa_Convo.png/revision/latest?cb=20140710174447"
+              },
+              {
+              "id": 2,
+              "name": "Winter Wolf",
+              "species": "Wolf",
+              "gender": "Female",
+              "occupation": "Unknown",
+              "hairColour": "White",
+              "eyeColour": "Unknown",
+              "description": "Winter was the mother of Bigby Wolf and his brothers. Winter was a good and caring mother and Bigby regards her very highly and was displeased that his father, Mr. North, left her. Despite that, Winter loved and was devoted to him even to the moment of her death.",
+              "imagePath": "https://vignette.wikia.nocookie.net/fables/images/e/e2/Winter_Wolf.png/revision/latest?cb=20140808191333"
+              }
+              ]
+        '404':
+          description: Not found
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Error'
+          examples:
+            application/json:
+              [{
+              "statusCode": 404,
+              "message": "Not found"
+              }]
+
+  /characters/{id}:
+    get:
+      summary: Character by ID
+      description: |
+        `/characters/{id}` endpoint returns information about a single character based on ID
+      parameters:
+        - name: id
+          in: path
+          description: character `id`
+          required: true
+          type: integer
+          format: int64
+        - name: fields
+          in: query
+          description: comma-separated list of fields to include in the response
+          required: false
+          type: string
+      tags:
+        - Characters
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -X GET -H "Content-Type: application/json" https://twauapi.herokuapp.com/characters/7
+        - lang: Python
+          source: |
+            import urllib2
+
+            urllib2.urlopen('https://twauapi.herokuapp.com/characters/7').read()
+        - lang: JavaScript
+          source: |
+            var xmlhttp = new XMLHttpRequest();
+            var url = 'https://twauapi.herokuapp.com/characters/7';
+
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var character = JSON.parse(this.responseText);
+                    console.log(character);
+                }
+            };
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        - lang: Ruby
+          source: |
+            require 'net/http'
+
+            uri = URI('https://twauapi.herokuapp.com/characters/7')
+            Net::HTTP.get(uri) # => String
+      responses:
+        200:
+          description: OK Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Characters'
+          examples:
+            application/json:
+              id: 7
+              name: "The Woodsman"
+              species: "Human"
+              gender: "Male"
+              occupation: "Unknown"
+              hairColour: "Brown"
+              eyeColour: "Green"
+              description: "The Woodsman is one of the few men who went toe to toe with Bigby in his Black Forest days and lived to tell the tale. In an attempt to save Little Red Riding Hood, he split the great wolf's belly open with his axe, filled him full of rocks, and threw the beast into a river. To his dismay his popularity faded. Even his name is forgotten, and he is only known as The Woodsman."
+              imagePath: "https://vignette.wikia.nocookie.net/fables/images/4/47/ISC_Woody_Angry.png/revision/latest/scale-to-width-down/250?cb=20140528030339"
+        '404':
+          description: Not found
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Error'
+          examples:
+            application/json:
+              [{
+              "statusCode": 404,
+              "message": "Not found"
+              }]
+
+  /locations:
+    get:
+      summary: All locations
+      description: |
+         `/locations` endpoint returns information about all the locations.
+      tags:
+        - Locations
+      parameters:
+        - fields:
+          name: fields
+          in: query
+          description: comma-separated list of fields to include in the response
+          required: false
+          type: string
+        - limit:
+          name: limit
+          in: query
+          required: false
+          description: amount of results
+          type: integer
+          format: int64
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -X GET -H "Content-Type: application/json" https://twauapi.herokuapp.com/locations
+        - lang: Python
+          source: |
+            import urllib2
+
+            urllib2.urlopen('https://twauapi.herokuapp.com/locations').read()
+        - lang: JavaScript
+          source: |
+            var xmlhttp = new XMLHttpRequest();
+            var url = 'https://twauapi.herokuapp.com/locations/<id>';
+
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var locations = JSON.parse(this.responseText);
+                    console.log(locations);
+                }
+            };
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        - lang: Ruby
+          source: |
+            require 'net/http'
+
+            uri = URI('https:/twauapi.herokuapp.com/locations')
+            Net::HTTP.get(uri) # => String
+      responses:
+        200:
+          description: OK Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Locations'
+          examples:
+            application/json:
+              [{
+              "id": 1,
+              "locationName": "New York City",
+              "description": "Fabletown is situated in New York City",
+              "imagePath": "https://vignette.wikia.nocookie.net/fables/images/4/43/FTH_Manhattan_Skyline.png/revision/latest/scale-to-width-down/1300?cb=20140826020954"
+              },
+              {
+              "id": 2,
+              "locationName": "Toad's Tenement",
+              "description": "A tenement building owned by Mr. Toad. The Woodsman owns an apartment in it.",
+              "imagePath": "https://vignette.wikia.nocookie.net/fables/images/b/b5/FTH_Toad%27s_Tenement.png/revision/latest/scale-to-width-down/1300?cb=20140614235651"
+              }]
+        '404':
+          description: Not found
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Error'
+          examples:
+            application/json:
+              [{
+              "statusCode": 404,
+              "message": "Not found"
+              }]
+
+  /locations/{id}:
+    get:
+      summary: Location by ID
+      description: |
+        `/locations/{id}` endpoints returns information about a single location based on ID.
+      parameters:
+        - name: id
+          in: path
+          description: location `id`
+          required: true
+          type: integer
+          format: int64
+        - name: fields
+          in: query
+          description: comma-separated list of fields to include in the response
+          required: false
+          type: string
+      tags:
+        - Locations
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -X GET -H "Content-Type: application/json" https://twauapi.herokuapp.com/locations/19
+        - lang: Python
+          source: |
+            import urllib2
+
+            urllib2.urlopen('https://twauapi.herokuapp.com/locations/19').read()
+        - lang: JavaScript
+          source: |
+            var xmlhttp = new XMLHttpRequest();
+            var url = 'https://twauapi.herokuapp.com/locations/19';
+
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var location = JSON.parse(this.responseText);
+                    console.log(location);
+                }
+            };
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        - lang: Ruby
+          source: |
+            require 'net/http'
+
+            uri = URI('https://twauapi.herokuapp.com/locations/19')
+            Net::HTTP.get(uri) # => String
+      responses:
+        200:
+          description: OK Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Locations'
+          examples:
+            application/json:
+              id: 19
+              locationName: "Beauty and Beast's Apartment"
+              description: "A lavish apartment in the Woodlands that Beauty and Beast live in."
+              imagePath: "https://vignette.wikia.nocookie.net/fables/images/2/2d/ISC_Fishing_for_Sympathy.png/revision/latest/scale-to-width-down/1300?cb=20140531212737"
+        '404':
+          description: Not found
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Error'
+          examples:
+            application/json:
+              [{
+              "statusCode": 404,
+              "message": "Not found"
+              }]
+
+  /episodes:
+    get:
+      summary: All episodes
+      description: |
+         `/episodes` endpoint returns information about the all current episodes.
+      tags:
+        - Episodes
+      parameters:
+        - fields:
+          name: fields
+          in: query
+          description: comma-separated list of fields to include in the response
+          required: false
+          type: string
+        - limit:
+          name: limit
+          in: query
+          required: false
+          description: amount of results
+          type: integer
+          format: int64
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -X GET -H "Content-Type: application/json" https://twauapi.herokuapp.com/episodes
+        - lang: Ruby
+          source: |
+            require 'net/http'
+
+            uri = URI('https://twauapi.herokuapp.com/episodes')
+            Net::HTTP.get(uri) # => String
+        - lang: Python
+          source: |
+            import urllib2
+
+            urllib2.urlopen('https://twauapi.herokuapp.com/episodes').read()
+        - lang: JavaScript
+          source: |
+            var xmlhttp = new XMLHttpRequest();
+            var url = 'https://twauapi.herokuapp.com/episodes';
+
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var episodes = JSON.parse(this.responseText);
+                    console.log(episodes);
+                }
+            };
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+      responses:
+        200:
+          description: OK Success 
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Episodes'
+          examples:
+            application/json:
+              [{
+              "id": 1,
+              "episodeName": "Faith",
+              "episodeNum": 1,
+              "season": 1,
+              "description": "Bigby Wolf, Sheriff of Fabletown, must work a murder case when a Fable is killed and he must work with Snow White to find out who the murderer is. The two of them work together and the investigation goes deep, with a shocking ending.",
+              "directedBy": "Nick Herman & Dennis Lenart",
+              "writtenBy": "Pierre Shorette & Ryan Kaufman",
+              "imagePath": "https://vignette.wikia.nocookie.net/fables/images/b/b6/FTH_Cover.png/revision/latest?cb=20140214011436"
+              },
+              {
+              "id": 2,
+              "episodeName": "Smoke & Mirrors",
+              "episodeNum": 2,
+              "season": 1,
+              "description": "The episode starts with Bigby being questioned by a female detective named Kelsey Brannigan. Bigby is reluctant to answer her questions. Suddenly, the detective and police officers in the room pass out, and it is shown that Crane had used a memory-wipe spell to let Bigby out.",
+              "directedBy": "Jason Latino",
+              "writtenBy": "Dave Grossman & Joe Pinney",
+              "imagePath": "https://vignette.wikia.nocookie.net/fables/images/a/a2/SAM_Cover.png/revision/latest?cb=20140214011612"
+              }]
+        '404':
+          description: Not found
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Error'
+          examples:
+            application/json:
+              [{
+              "statusCode": 404,
+              "message": "Not found"
+              }]
+
+  /episodes/{id}:
+    get:
+      summary: Episode by ID
+      description: |
+         `/episodes` endpoint returns information about a single episode based on ID.
+      tags:
+        - Episodes
+      parameters:
+        - name: id
+          in: path
+          description: episodes `id`
+          required: true
+          type: integer
+          format: int64
+        - name: fields
+          in: query
+          description: comma-separated list of fields to include in the response
+          required: false
+          type: string
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -X GET -H "Content-Type: application/json" https://twauapi.herokuapp.com/episodes/3
+        - lang: Ruby
+          source: |
+            require 'net/http'
+
+            uri = URI('https://twauapi.herokuapp.com/episodes/3')
+            Net::HTTP.get(uri) # => String
+        - lang: Python
+          source: |
+            import urllib2
+
+            urllib2.urlopen('https://twauapi.herokuapp.com/episodes/3').read()
+        - lang: JavaScript
+          source: |
+            var xmlhttp = new XMLHttpRequest();
+            var url = 'https://twauapi.herokuapp.com/episodes/3';
+
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var episode = JSON.parse(this.responseText);
+                    console.log(episode);
+                }
+            };
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+      responses:
+        200:
+          description: OK Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Episodes'
+          examples:
+            application/json:
+              id: 3
+              episodeName: "A Crooked Mile"
+              episodeNum: 3
+              season: 1
+              description: "Bigby has discovered that Crane is the murderer; a photo of him in bed with a murdered woman glamoured to look like Snow was found. He sees Beauty and Beast off to arrive at Lily's funeral, where Holly, Grendel, Prince Lawrence, Vivian and Nerissa are all attending. Eventually, Snow returns to the funeral and asks Bigby to wait at a distance."
+              directedBy: " Martin Montgomery"
+              writtenBy: "Adam Hines & Ryan Kaufman"
+              imagePath: "https://vignette.wikia.nocookie.net/fables/images/0/03/ACM_Cover.png/revision/latest/?cb=20140214012342"
+        '404':
+          description: Not found
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Error'
+          examples:
+            application/json:
+              [{
+              "statusCode": 404,
+              "message": "Not found"
+              }]
+
+definitions:
+  Characters:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: Unique identifier representing a specific character
+      name:
+        type: string
+        description: Name of the character
+      species: 
+        type: string
+        description: Species of the character
+      gender:
+        type: string
+        description: Gender of the character
+      occupation:
+        type: string
+        description: Occupation of the character (if known)
+      hairColour:
+        type: string
+        description: Hair colour of the character
+      eyeColour:
+        type: string
+        description: Eye colour of the character
+      description:
+        type: string
+        description: Brief description of the character
+      imagePath:
+        type: string
+        description: Image of the character URL
+  Locations:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: Unique identifier representing a specific location
+      locationName:
+        type: string
+        description: Name of location
+      description:
+        type: string
+        description: Brief description about the location
+      imagePath:
+        type: string
+        description: Image of the location URL
+  Episodes:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: Unique identifier representing a specific episode
+      episodeName:
+        type: string
+        description: Name of the episode
+      episodeNum:
+        type: integer
+        description: Episode number in it's respected season
+      season:
+        type: integer
+        description: Season number of episode
+      description:
+        type: string
+        description: Brief description of the episode
+      directedBy:
+        type: string
+        description: Episode director(s)
+      writtenBy:
+        type: string
+        description: Episode writer(s)
+      imagePath:
+        type: string
+        description: Image of the episode URL
+  Error:
+    type: object
+    properties:
+      statusCode:
+        type: integer
+        format: int32
+        description: HTTP status code
+      message:
+        type: string
+        description: HTTPS status code message
