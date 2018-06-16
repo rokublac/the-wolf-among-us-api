@@ -263,7 +263,7 @@ paths:
         - lang: JavaScript
           source: |
             var xmlhttp = new XMLHttpRequest();
-            var url = 'https://twauapi.herokuapp.com/locations/<id>';
+            var url = 'https://twauapi.herokuapp.com/locations';
 
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
