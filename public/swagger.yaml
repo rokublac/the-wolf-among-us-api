@@ -118,26 +118,26 @@ paths:
           examples:
             application/json:
               [{
-                "id": 1,
-                "name": "Bigby Wolf",
-                "species": "Wolf",
-                "gender": "Male",
-                "occupation": "Fabletown Sherrif",
-                "hairColour": "Mahogany",
-                "eyeColour": "Brown",
-                "description": "The renowned Big Bad Wolf. He's known for tormenting pigs and girls in red hoods, but is trying to put those dark days behind him. Bigby now acts as Fabletown's sheriff and remains in his human form, mostly. However, due to his rough past, the citizens of Fabletown are slow to trust him. Bigby is determined to show that he's truly changed, but some instincts are just too hard to control",
-                "imagePath": "https://vignette.wikia.nocookie.net/fables/images/2/2b/CW_Bigby_Nerissa_Convo.png/revision/latest?cb=20140710174447"
+                  "id": 1,
+                  "name": "Bigby Wolf",
+                  "species": "Wolf",
+                  "gender": "Male",
+                  "occupation": "Fabletown Sherrif",
+                  "hairColour": "Mahogany",
+                  "eyeColour": "Brown",
+                  "description": "The renowned Big Bad Wolf. He's known for tormenting pigs and girls in red hoods, but is trying to put those dark days behind him. Bigby now acts as Fabletown's sheriff and remains in his human form, mostly. However, due to his rough past, the citizens of Fabletown are slow to trust him. Bigby is determined to show that he's truly changed, but some instincts are just too hard to control",
+                  "imagePath": "https://vignette.wikia.nocookie.net/fables/images/2/2b/CW_Bigby_Nerissa_Convo.png/revision/latest?cb=20140710174447"
                 },
                 {
-                "id": 2,
-                "name": "Winter Wolf",
-                "species": "Wolf",
-                "gender": "Female",
-                "occupation": "Unknown",
-                "hairColour": "White",
-                "eyeColour": "Unknown",
-                "description": "Winter was the mother of Bigby Wolf and his brothers. Winter was a good and caring mother and Bigby regards her very highly and was displeased that his father, Mr. North, left her. Despite that, Winter loved and was devoted to him even to the moment of her death.",
-                "imagePath": "https://vignette.wikia.nocookie.net/fables/images/e/e2/Winter_Wolf.png/revision/latest?cb=20140808191333"
+                  "id": 2,
+                  "name": "Winter Wolf",
+                  "species": "Wolf",
+                  "gender": "Female",
+                  "occupation": "Unknown",
+                  "hairColour": "White",
+                  "eyeColour": "Unknown",
+                  "description": "Winter was the mother of Bigby Wolf and his brothers. Winter was a good and caring mother and Bigby regards her very highly and was displeased that his father, Mr. North, left her. Despite that, Winter loved and was devoted to him even to the moment of her death.",
+                  "imagePath": "https://vignette.wikia.nocookie.net/fables/images/e/e2/Winter_Wolf.png/revision/latest?cb=20140808191333"
               }
               ]
         '404':
@@ -148,10 +148,10 @@ paths:
               $ref: '#/definitions/Error'
           examples:
             application/json:
-              [{
-              "statusCode": 404,
-              "message": "Not found"
-              }]
+              {
+                "statusCode": 404,
+                "message": "Not found"
+              }
 
   /characters/{id}:
     get:
@@ -204,8 +204,6 @@ paths:
         200:
           description: OK Success
           schema:
-            type: array
-            items:
               $ref: '#/definitions/Characters'
           examples:
             application/json:
@@ -221,15 +219,13 @@ paths:
         '404':
           description: Not found
           schema:
-            type: array
-            items:
               $ref: '#/definitions/Error'
           examples:
             application/json:
-              [{
-              "statusCode": 404,
-              "message": "Not found"
-              }]
+              {
+                "statusCode": 404,
+                "message": "Not found"
+              }
 
   /locations:
     get:
@@ -290,16 +286,16 @@ paths:
           examples:
             application/json:
               [{
-              "id": 1,
-              "locationName": "New York City",
-              "description": "Fabletown is situated in New York City",
-              "imagePath": "https://vignette.wikia.nocookie.net/fables/images/4/43/FTH_Manhattan_Skyline.png/revision/latest/scale-to-width-down/1300?cb=20140826020954"
+                "id": 1,
+                "locationName": "New York City",
+                "description": "Fabletown is situated in New York City",
+                "imagePath": "https://vignette.wikia.nocookie.net/fables/images/4/43/FTH_Manhattan_Skyline.png/revision/latest/scale-to-width-down/1300?cb=20140826020954"
               },
               {
-              "id": 2,
-              "locationName": "Toad's Tenement",
-              "description": "A tenement building owned by Mr. Toad. The Woodsman owns an apartment in it.",
-              "imagePath": "https://vignette.wikia.nocookie.net/fables/images/b/b5/FTH_Toad%27s_Tenement.png/revision/latest/scale-to-width-down/1300?cb=20140614235651"
+                "id": 2,
+                "locationName": "Toad's Tenement",
+                "description": "A tenement building owned by Mr. Toad. The Woodsman owns an apartment in it.",
+                "imagePath": "https://vignette.wikia.nocookie.net/fables/images/b/b5/FTH_Toad%27s_Tenement.png/revision/latest/scale-to-width-down/1300?cb=20140614235651"
               }]
         '404':
           description: Not found
@@ -309,10 +305,10 @@ paths:
               $ref: '#/definitions/Error'
           examples:
             application/json:
-              [{
-              "statusCode": 404,
-              "message": "Not found"
-              }]
+              {
+                "statusCode": 404,
+                "message": "Not found"
+              }
 
   /locations/{id}:
     get:
@@ -365,8 +361,6 @@ paths:
         200:
           description: OK Success
           schema:
-            type: array
-            items:
               $ref: '#/definitions/Locations'
           examples:
             application/json:
@@ -377,15 +371,13 @@ paths:
         '404':
           description: Not found
           schema:
-            type: array
-            items:
               $ref: '#/definitions/Error'
           examples:
             application/json:
-              [{
-              "statusCode": 404,
-              "message": "Not found"
-              }]
+              {
+                "statusCode": 404,
+                "message": "Not found"
+              }
 
   /episodes:
     get:
@@ -446,24 +438,24 @@ paths:
           examples:
             application/json:
               [{
-              "id": 1,
-              "episodeName": "Faith",
-              "episodeNum": 1,
-              "season": 1,
-              "description": "Bigby Wolf, Sheriff of Fabletown, must work a murder case when a Fable is killed and he must work with Snow White to find out who the murderer is. The two of them work together and the investigation goes deep, with a shocking ending.",
-              "directedBy": "Nick Herman & Dennis Lenart",
-              "writtenBy": "Pierre Shorette & Ryan Kaufman",
-              "imagePath": "https://vignette.wikia.nocookie.net/fables/images/b/b6/FTH_Cover.png/revision/latest?cb=20140214011436"
+                "id": 1,
+                "episodeName": "Faith",
+                "episodeNum": 1,
+                "season": 1,
+                "description": "Bigby Wolf, Sheriff of Fabletown, must work a murder case when a Fable is killed and he must work with Snow White to find out who the murderer is. The two of them work together and the investigation goes deep, with a shocking ending.",
+                "directedBy": "Nick Herman & Dennis Lenart",
+                "writtenBy": "Pierre Shorette & Ryan Kaufman",
+                "imagePath": "https://vignette.wikia.nocookie.net/fables/images/b/b6/FTH_Cover.png/revision/latest?cb=20140214011436"
               },
               {
-              "id": 2,
-              "episodeName": "Smoke & Mirrors",
-              "episodeNum": 2,
-              "season": 1,
-              "description": "The episode starts with Bigby being questioned by a female detective named Kelsey Brannigan. Bigby is reluctant to answer her questions. Suddenly, the detective and police officers in the room pass out, and it is shown that Crane had used a memory-wipe spell to let Bigby out.",
-              "directedBy": "Jason Latino",
-              "writtenBy": "Dave Grossman & Joe Pinney",
-              "imagePath": "https://vignette.wikia.nocookie.net/fables/images/a/a2/SAM_Cover.png/revision/latest?cb=20140214011612"
+                "id": 2,
+                "episodeName": "Smoke & Mirrors",
+                "episodeNum": 2,
+                "season": 1,
+                "description": "The episode starts with Bigby being questioned by a female detective named Kelsey Brannigan. Bigby is reluctant to answer her questions. Suddenly, the detective and police officers in the room pass out, and it is shown that Crane had used a memory-wipe spell to let Bigby out.",
+                "directedBy": "Jason Latino",
+                "writtenBy": "Dave Grossman & Joe Pinney",
+                "imagePath": "https://vignette.wikia.nocookie.net/fables/images/a/a2/SAM_Cover.png/revision/latest?cb=20140214011612"
               }]
         '404':
           description: Not found
