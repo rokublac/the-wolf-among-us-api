@@ -112,7 +112,7 @@ paths:
         200:
           description: OK Success
           schema:
-              $ref: '#/definitions/Characters'
+              $ref: '#/definitions/Character'
           examples:
             application/json:
               {
@@ -208,15 +208,17 @@ paths:
               $ref: '#/definitions/Character'
           examples:
             application/json:
-              id: 7
-              name: "The Woodsman"
-              species: "Human"
-              gender: "Male"
-              occupation: "Unknown"
-              hairColour: "Brown"
-              eyeColour: "Green"
-              description: "The Woodsman is one of the few men who went toe to toe with Bigby in his Black Forest days and lived to tell the tale. In an attempt to save Little Red Riding Hood, he split the great wolf's belly open with his axe, filled him full of rocks, and threw the beast into a river. To his dismay his popularity faded. Even his name is forgotten, and he is only known as The Woodsman."
-              imagePath: "https://vignette.wikia.nocookie.net/fables/images/4/47/ISC_Woody_Angry.png/revision/latest/scale-to-width-down/250?cb=20140528030339"
+                statusCode: 200
+                body:
+                  id: 7
+                  name: "The Woodsman"
+                  species: "Human"
+                  gender: "Male"
+                  occupation: "Unknown"
+                  hairColour: "Brown"
+                  eyeColour: "Green"
+                  description: "The Woodsman is one of the few men who went toe to toe with Bigby in his Black Forest days and lived to tell the tale. In an attempt to save Little Red Riding Hood, he split the great wolf's belly open with his axe, filled him full of rocks, and threw the beast into a river. To his dismay his popularity faded. Even his name is forgotten, and he is only known as The Woodsman."
+                  imagePath: "https://vignette.wikia.nocookie.net/fables/images/4/47/ISC_Woody_Angry.png/revision/latest/scale-to-width-down/250?cb=20140528030339"
         '404':
           description: Not found
           schema:
@@ -281,28 +283,30 @@ paths:
         200:
           description: OK Success
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Locations'
+              $ref: '#/definitions/Location'
           examples:
             application/json:
-              [{
-                "id": 1,
-                "locationName": "New York City",
-                "description": "Fabletown is situated in New York City",
-                "imagePath": "https://vignette.wikia.nocookie.net/fables/images/4/43/FTH_Manhattan_Skyline.png/revision/latest/scale-to-width-down/1300?cb=20140826020954"
-              },
               {
-                "id": 2,
-                "locationName": "Toad's Tenement",
-                "description": "A tenement building owned by Mr. Toad. The Woodsman owns an apartment in it.",
-                "imagePath": "https://vignette.wikia.nocookie.net/fables/images/b/b5/FTH_Toad%27s_Tenement.png/revision/latest/scale-to-width-down/1300?cb=20140614235651"
-              }]
+                "statusCode": 200,
+                "body":[
+                  {
+                    "id": 1,
+                    "locationName": "New York City",
+                    "description": "Fabletown is situated in New York City",
+                    "imagePath": "https://vignette.wikia.nocookie.net/fables/images/4/43/FTH_Manhattan_Skyline.png/revision/latest/scale-to-width-down/1300?cb=20140826020954"
+                  },
+                  {
+                    "id": 2,
+                    "locationName": "Toad's Tenement",
+                    "description": "A tenement building owned by Mr. Toad. The Woodsman owns an apartment in it.",
+                    "imagePath": "https://vignette.wikia.nocookie.net/fables/images/b/b5/FTH_Toad%27s_Tenement.png/revision/latest/scale-to-width-down/1300?cb=20140614235651"
+                  }
+                ]
+              }
+                
         '404':
           description: Not found
           schema:
-            type: array
-            items:
               $ref: '#/definitions/Error'
           examples:
             application/json:
@@ -362,13 +366,15 @@ paths:
         200:
           description: OK Success
           schema:
-              $ref: '#/definitions/Locations'
+              $ref: '#/definitions/Location'
           examples:
             application/json:
-              id: 19
-              locationName: "Beauty and Beast's Apartment"
-              description: "A lavish apartment in the Woodlands that Beauty and Beast live in."
-              imagePath: "https://vignette.wikia.nocookie.net/fables/images/2/2d/ISC_Fishing_for_Sympathy.png/revision/latest/scale-to-width-down/1300?cb=20140531212737"
+              statusCode: 200
+              body:
+                id: 19
+                locationName: "Beauty and Beast's Apartment"
+                description: "A lavish apartment in the Woodlands that Beauty and Beast live in."
+                imagePath: "https://vignette.wikia.nocookie.net/fables/images/2/2d/ISC_Fishing_for_Sympathy.png/revision/latest/scale-to-width-down/1300?cb=20140531212737"
         '404':
           description: Not found
           schema:
@@ -433,31 +439,34 @@ paths:
         200:
           description: OK Success 
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Episodes'
+              $ref: '#/definitions/Episode'
           examples:
             application/json:
-              [{
-                "id": 1,
-                "episodeName": "Faith",
-                "episodeNum": 1,
-                "season": 1,
-                "description": "Bigby Wolf, Sheriff of Fabletown, must work a murder case when a Fable is killed and he must work with Snow White to find out who the murderer is. The two of them work together and the investigation goes deep, with a shocking ending.",
-                "directedBy": "Nick Herman & Dennis Lenart",
-                "writtenBy": "Pierre Shorette & Ryan Kaufman",
-                "imagePath": "https://vignette.wikia.nocookie.net/fables/images/b/b6/FTH_Cover.png/revision/latest?cb=20140214011436"
-              },
               {
-                "id": 2,
-                "episodeName": "Smoke & Mirrors",
-                "episodeNum": 2,
-                "season": 1,
-                "description": "The episode starts with Bigby being questioned by a female detective named Kelsey Brannigan. Bigby is reluctant to answer her questions. Suddenly, the detective and police officers in the room pass out, and it is shown that Crane had used a memory-wipe spell to let Bigby out.",
-                "directedBy": "Jason Latino",
-                "writtenBy": "Dave Grossman & Joe Pinney",
-                "imagePath": "https://vignette.wikia.nocookie.net/fables/images/a/a2/SAM_Cover.png/revision/latest?cb=20140214011612"
-              }]
+                "statusCode": 200,
+                "body":[
+                   {
+                    "id": 1,
+                    "episodeName": "Faith",
+                    "episodeNum": 1,
+                    "season": 1,
+                    "description": "Bigby Wolf, Sheriff of Fabletown, must work a murder case when a Fable is killed and he must work with Snow White to find out who the murderer is. The two of them work together and the investigation goes deep, with a shocking ending.",
+                    "directedBy": "Nick Herman & Dennis Lenart",
+                    "writtenBy": "Pierre Shorette & Ryan Kaufman",
+                    "imagePath": "https://vignette.wikia.nocookie.net/fables/images/b/b6/FTH_Cover.png/revision/latest?cb=20140214011436"
+                  },
+                  {
+                    "id": 2,
+                    "episodeName": "Smoke & Mirrors",
+                    "episodeNum": 2,
+                    "season": 1,
+                    "description": "The episode starts with Bigby being questioned by a female detective named Kelsey Brannigan. Bigby is reluctant to answer her questions. Suddenly, the detective and police officers in the room pass out, and it is shown that Crane had used a memory-wipe spell to let Bigby out.",
+                    "directedBy": "Jason Latino",
+                    "writtenBy": "Dave Grossman & Joe Pinney",
+                    "imagePath": "https://vignette.wikia.nocookie.net/fables/images/a/a2/SAM_Cover.png/revision/latest?cb=20140214011612"
+                  }
+                ]
+              }
         '404':
           description: Not found
           schema:
@@ -520,17 +529,19 @@ paths:
         200:
           description: OK Success
           schema:
-              $ref: '#/definitions/Episodes'
+              $ref: '#/definitions/Episode'
           examples:
             application/json:
-              id: 3
-              episodeName: "A Crooked Mile"
-              episodeNum: 3
-              season: 1
-              description: "Bigby has discovered that Crane is the murderer; a photo of him in bed with a murdered woman glamoured to look like Snow was found. He sees Beauty and Beast off to arrive at Lily's funeral, where Holly, Grendel, Prince Lawrence, Vivian and Nerissa are all attending. Eventually, Snow returns to the funeral and asks Bigby to wait at a distance."
-              directedBy: " Martin Montgomery"
-              writtenBy: "Adam Hines & Ryan Kaufman"
-              imagePath: "https://vignette.wikia.nocookie.net/fables/images/0/03/ACM_Cover.png/revision/latest/?cb=20140214012342"
+              statusCode: 200
+              body:
+                id: 3
+                episodeName: "A Crooked Mile"
+                episodeNum: 3
+                season: 1
+                description: "Bigby has discovered that Crane is the murderer; a photo of him in bed with a murdered woman glamoured to look like Snow was found. He sees Beauty and Beast off to arrive at Lily's funeral, where Holly, Grendel, Prince Lawrence, Vivian and Nerissa are all attending. Eventually, Snow returns to the funeral and asks Bigby to wait at a distance."
+                directedBy: " Martin Montgomery"
+                writtenBy: "Adam Hines & Ryan Kaufman"
+                imagePath: "https://vignette.wikia.nocookie.net/fables/images/0/03/ACM_Cover.png/revision/latest/?cb=20140214012342"
         '404':
           description: Not found
           schema:
@@ -543,7 +554,7 @@ paths:
               }
 
 definitions:
-  Characters:
+  Character:
     type: object
     properties:
       statusCode:
@@ -553,8 +564,8 @@ definitions:
         type: array
         description: Response body
         items: 
-          $ref: '#/definitions/Characters_body'
-  Characters_body:
+          $ref: '#/definitions/Characters'
+  Characters:
     type: object
     properties:
       id:
@@ -584,18 +595,17 @@ definitions:
       imagePath:
         type: string
         description: Image of the character URL
-  Character:
+  Location:
     type: object
     properties:
       statusCode:
         type: integer
         description: Response status code
       body:
-        type: object
+        type: array
         description: Response body
-        items: 
-          $ref: '#/definitions/Characters_body'
-
+        items:
+          $ref: '#/definitions/Locations'
   Locations:
     type: object
     properties:
@@ -611,6 +621,17 @@ definitions:
       imagePath:
         type: string
         description: Image of the location URL
+  Episode:
+    type: object
+    properties:
+      statusCode: 
+        type: integer
+        description: Response status code
+      body:
+        type: array
+        description: Response body
+        items:
+          $ref: '#/definitions/Episodes'
   Episodes:
     type: object
     properties:
@@ -648,4 +669,4 @@ definitions:
         description: HTTP status code
       message:
         type: string
-        description: HTTPS status code message
+        description: Status code message
