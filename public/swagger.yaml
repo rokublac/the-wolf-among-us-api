@@ -468,7 +468,7 @@ paths:
         '404':
           description: Not found
           schema:
-            type: array
+            type: object
             items:
               $ref: '#/definitions/Error'
           examples:
