@@ -29,7 +29,7 @@ Requests can be made with Curl or with your desired language's HTTP GET request 
 ```
 ## Credits
 - [ReDoc](https://github.com/Rebilly/ReDoc) for the API reference documentation.
-- [json-server](https://github.com/typicode/json-server) for REST API builder.
+- [json-server](https://github.com/typicode/json-server) for the REST API builder.
 - [Studio Ghibli API](https://github.com/janaipakos/ghibliapi) for inspiring me to make this API.
 - [Wolf Among Us wiki](http://fables.wikia.com/wiki/The_Wolf_Among_Us) contributors for the data and information.
 - [Telltale Games](https://telltale.com/) for the awesome game.
