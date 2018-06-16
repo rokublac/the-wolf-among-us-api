@@ -546,6 +546,12 @@ definitions:
   Characters:
     type: object
     properties:
+      statusCode:
+        type: integer
+        description: Response status code
+      body:
+        type: array
+        description: Response body
       id:
         type: integer
         description: Unique identifier representing a specific character
