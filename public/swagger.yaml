@@ -552,9 +552,14 @@ definitions:
       body:
         type: array
         description: Response body
-        id:
-          type: integer
-        # description: Unique identifier representing a specific character
+        items: 
+          $ref: '#/definitions/Character_body'
+  Character_body:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: Unique identifier representing a specific character
       name:
         type: string
         description: Name of the character
