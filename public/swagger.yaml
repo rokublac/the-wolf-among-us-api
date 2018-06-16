@@ -205,7 +205,7 @@ paths:
         200:
           description: OK Success
           schema:
-              $ref: '#/definitions/Characters'
+              $ref: '#/definitions/Character'
           examples:
             application/json:
               id: 7
@@ -553,8 +553,8 @@ definitions:
         type: array
         description: Response body
         items: 
-          $ref: '#/definitions/Character_body'
-  Character_body:
+          $ref: '#/definitions/Characters_body'
+  Characters_body:
     type: object
     properties:
       id:
@@ -584,6 +584,18 @@ definitions:
       imagePath:
         type: string
         description: Image of the character URL
+  Character:
+    type: object
+    properties:
+      statusCode:
+        type: integer
+        description: Response status code
+      body:
+        type: object
+        description: Response body
+        items: 
+          $ref: '#/definitions/Characters_body'
+
   Locations:
     type: object
     properties:
