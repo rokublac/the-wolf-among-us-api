@@ -1,5 +1,6 @@
 <div align="center">
   <img alt="The Wolf Among Us Logo" src="https://vignette.wikia.nocookie.net/logopedia/images/f/f6/The_Wolf_Among_Us.png/revision/latest/scale-to-width-down/640?cb=20131019205531" width=400/>
+</div>
 
 # The Wolf Among Us API
 Welcome to the REST API for Telltale's The Wolf Among Us!
@@ -11,8 +12,8 @@ Requests can be made with Curl or with your desired language's HTTP GET request 
 
 ```json
 {
-	statusCode: 200,
-	body: {
+	"statusCode": 200,
+	"body": {
 		"id": 1,
 		"name": "Bigby Wolf",
 		"species": "Wolf",
@@ -31,4 +32,3 @@ Requests can be made with Curl or with your desired language's HTTP GET request 
 - [Studio Ghibli API](https://github.com/janaipakos/ghibliapi) for inspiring me to make this API.
 - [Wolf Among Us wiki](http://fables.wikia.com/wiki/The_Wolf_Among_Us) contributors for the data and information.
 - [Telltale Games](https://telltale.com/) for the awesome game.
-</div>
