@@ -3,12 +3,12 @@
 </div>
 
 <div align="center">
-	# The Wolf Among Us API
+# The Wolf Among Us API
 </div>
 Welcome to the REST API for Telltale's The Wolf Among Us!<br />
 The Wolf Among Us API provides the (current) characters, locations, and episodes within the game.
 <div align="center">
-	## Accessing the API
+## Accessing the API
 </div>
 Requests can be made with Curl or with your desired language's HTTP GET request method. For example, with Curl, to GET the data for Bigsby Wolf:
 `curl https://twauapi.herokuapp.com/characters/1`
