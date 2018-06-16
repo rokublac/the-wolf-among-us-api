@@ -26,15 +26,19 @@ info:
 
       ```json
       {
-        "id": 1,
-        "name": "Bigby Wolf",
-        "species": "Wolf",
-        "gender": "Male",
-        "occupation": "Fabletown Sherrif",
-        "hairColour": "Mahogany",
-        "eyeColour": "Brown",
-        "description": "The renowned Big Bad Wolf. He's known for tormenting pigs and girls in red hoods, but is trying to put those dark days behind him. Bigby now acts as Fabletown's sheriff and remains in his human form, mostly. However, due to his rough past, the citizens of Fabletown are slow to trust him. Bigby is determined to show that he's truly changed, but some instincts are just too hard to control",
-        "imagePath": "https://vignette.wikia.nocookie.net/fables/images/2/2b/CW_Bigby_Nerissa_Convo.png/revision/latest?cb=20140710174447"
+        "statusCode": 200,
+        "body":
+          {
+            "id": 1,
+            "name": "Bigby Wolf",
+            "species": "Wolf",
+            "gender": "Male",
+            "occupation": "Fabletown Sherrif",
+            "hairColour": "Mahogany",
+            "eyeColour": "Brown",
+            "description": "The renowned Big Bad Wolf. He's known for tormenting pigs and girls in red hoods, but is trying to put those dark days behind him. Bigby now acts as Fabletown's sheriff and remains in his human form, mostly. However, due to his rough past, the citizens of Fabletown are slow to trust him. Bigby is determined to show that he's truly changed, but some instincts are just too hard to control",
+            "imagePath": "https://vignette.wikia.nocookie.net/fables/images/2/2b/CW_Bigby_Nerissa_Convo.png/revision/latest?cb=20140710174447"
+          }
       }
       ```
 
