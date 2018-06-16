@@ -552,9 +552,9 @@ definitions:
       body:
         type: array
         description: Response body
-      id:
-        type: integer
-        description: Unique identifier representing a specific character
+        id:
+          type: integer
+          description: Unique identifier representing a specific character
       name:
         type: string
         description: Name of the character
