@@ -4,8 +4,9 @@
 
 
 # The Wolf Among Us API
-Welcome to the REST API for Telltale's The Wolf Among Us!<br />
-The Wolf Among Us API provides the (current) characters, locations, and episodes within the game.
+Small test project working with Swagger and Redoc.<br />
+This REST API provides the (current) characters, locations, and episodes within Telltale's The Wolf Among Us.
+
 
 ## Accessing the API
 Requests can be made with Curl or with your desired language's HTTP GET request method. For example, with Curl, to GET the data for Bigsby Wolf:
@@ -27,9 +28,13 @@ Requests can be made with Curl or with your desired language's HTTP GET request 
 	}
 }
 ```
+
+## Use cases
+No use cases really, besides cataloguing characters, locations and episodes...<br />
+The JSON file is only around 40KB - so if you wanted to access the data you're better off just downloading it from this repository and implement it directly into your project(s). But if you want to access it with HTTP, here you go!
+
 ## Credits
 - [ReDoc](https://github.com/Rebilly/ReDoc) for the API reference documentation.
 - [json-server](https://github.com/typicode/json-server) for the REST API builder.
-- [Studio Ghibli API](https://github.com/janaipakos/ghibliapi) for inspiring me to make this API.
 - [Wolf Among Us wiki](http://fables.wikia.com/wiki/The_Wolf_Among_Us) contributors for the data and information.
 - [Telltale Games](https://telltale.com/) for the awesome game.

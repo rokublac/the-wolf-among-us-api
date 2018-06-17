@@ -3,13 +3,12 @@ info:
   title: The Wolf Among Us API
   description: |
     # Introduction
-      Welcome to the  REST API for Telltale's The Wolf Among Us!
+      Small test project working with Swagger and Redoc.<br />
+      This REST API provides the (current) characters, locations, and episodes within Telltale's The Wolf Among Us.
 
-      The Wolf Among Us API provides the (current) characters, locations, and episodes within the game.
+      The main repository can be found at [https://github.com/rokublak/the-wolf-among-us-api](https://github.com/rokublak/the-wolf-among-us-api)
 
-      For issues and support, please visit the main repository: [https://github.com/rokublak/the-wolf-among-us-api](https://github.com/rokublak/the-wolf-among-us-api)
-
-    # API Access
+    # Access
       #### Authentication
       No authentication is required for this API.
   
@@ -41,6 +40,9 @@ info:
           }
       }
       ```
+    # Use cases
+    No use cases really, besides cataloguing characters, locations and episodes...<br />
+    The JSON data is only ~40KB, so if you wanted to access the data you're better off just downloading it from main [github repo](https://github.com/rokublak/the-wolf-among-us-api) and implement it directly into your project(s). But if you want to access it with HTTP, here you go!
 
   version: "1.0.0"
   x-logo:
