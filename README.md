@@ -3,7 +3,7 @@
 </div>
 
 
-# The Wolf Among Us API
+# The Wolf Among Us API (sunsetted)
 Small test project working with Swagger and Redoc.<br />
 This REST API provides the (current) characters, locations, and episodes within Telltale's The Wolf Among Us.
 
